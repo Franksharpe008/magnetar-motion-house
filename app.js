@@ -376,6 +376,7 @@ function initTiltCards() {
 function initHeroWebGL() {
     const canvas = document.getElementById('heroCanvas');
     if (!(canvas instanceof HTMLCanvasElement)) return;
+    canvas.classList.remove('is-live');
 
     const supportsWebGL = () => {
         try {
@@ -402,6 +403,7 @@ function initHeroWebGL() {
         } catch {
             return;
         }
+        renderer.setClearColor(0x000000, 0);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
 
         const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
@@ -476,6 +478,7 @@ function initHeroWebGL() {
         });
 
         const startedAt = performance.now();
+        let revealed = false;
         const render = () => {
             const elapsed = (performance.now() - startedAt) / 1000;
             knot.rotation.x = elapsed * 0.25;
@@ -486,6 +489,11 @@ function initHeroWebGL() {
             group.rotation.x += (-pointer.y * 0.2 - group.rotation.x) * 0.03;
             particles.rotation.y = elapsed * 0.03;
             renderer.render(scene, camera);
+            if (!revealed) {
+                canvas.classList.add('is-live');
+                canvas.setAttribute('data-safe-overlay', 'true');
+                revealed = true;
+            }
             window.requestAnimationFrame(render);
         };
 
