@@ -1,0 +1,57 @@
+{
+  "projectName": "magnetar-motion-house",
+  "targetPath": "/Users/franksharpe/Documents/New project/output/mint/workspaces/20260327-162702-magnetar-motion-house",
+  "protectedPaths": [
+    "/Users/franksharpe/Documents/New project/docs",
+    "/Users/franksharpe/Documents/New project/scripts",
+    "/Users/franksharpe/.codex/MEMORY.md"
+  ],
+  "smoke": {
+    "route": "/",
+    "requiredText": []
+  },
+  "flows": [
+    {
+      "name": "audio playback",
+      "path": "/",
+      "steps": [
+        { "action": "click", "selector": "[data-audio-trigger=\"score\"]" },
+        { "action": "waitMs", "value": 1200 },
+        {
+          "action": "expectAudioPlaying",
+          "selector": ".audio-dock audio",
+          "minimumCurrentTime": 0.6,
+          "timeoutMs": 6000
+        },
+        { "action": "click", "selector": ".audio-expand" },
+        { "action": "waitMs", "value": 350 },
+        {
+          "action": "expectDockCollapsed",
+          "selector": ".audio-dock",
+          "maxWidth": 110,
+          "hiddenSelectors": [".audio-description", ".audio-track-list", ".audio-toggle"],
+          "timeoutMs": 3000
+        }
+      ]
+    }
+  ],
+  "lighthouse": {
+    "routes": ["/", "/work.html", "/lab.html", "/contact.html"],
+    "thresholds": {
+      "performance": 80,
+      "accessibility": 90,
+      "bestPractices": 85,
+      "seo": 85
+    }
+  },
+  "accessibility": {
+    "routes": ["/", "/work.html", "/lab.html", "/contact.html"]
+  },
+  "visual": {
+    "maxDiffPixelRatio": 0.02,
+    "breakpoints": [
+      { "name": "desktop", "width": 1440, "height": 1080, "fullPage": true },
+      { "name": "mobile", "width": 390, "height": 844, "fullPage": true }
+    ]
+  }
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium motion-led launch systems with 3D identity, cinematic video, and interactive storytelling from Magnetar Motion House.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff3366'/%3E%3Cstop offset='50%25' stop-color='%239933ff'/%3E%3Cstop offset='100%25' stop-color='%233366ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='url(%23g)' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='7' fill='url(%23g)'/%3E%3Cpath d='M32 12V52M12 32H52' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://magnetar-motion-house.vercel.app/">
+    <title>Magnetar Motion House — Creative Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <nav class="main-nav">
+        <a href="index.html" class="logo-link" aria-label="Magnetar Motion House">
+            <div class="logo-mark">
+                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="magnetarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff3366"/>
+                            <stop offset="50%" style="stop-color:#9933ff"/>
+                            <stop offset="100%" style="stop-color:#3366ff"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="56" stroke="url(#magnetarGrad)" stroke-width="2" fill="none" class="logo-ring"/>
+                    <path d="M60 20 L60 100 M20 60 L100 60" stroke="url(#magnetarGrad)" stroke-width="3" stroke-linecap="round" class="logo-cross"/>
+                    <circle cx="60" cy="60" r="12" fill="url(#magnetarGrad)" class="logo-core"/>
+                    <path d="M60 32 L60 48 M60 72 L60 88 M32 60 L48 60 M72 60 L88 60" stroke="url(#magnetarGrad)" stroke-width="2" stroke-linecap="round" class="logo-pulse"/>
+                </svg>
+            </div>
+            <span class="logo-text">Magnetar</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="work.html" class="nav-link">Work</a>
+            <a href="lab.html" class="nav-link">Lab</a>
+            <a href="contact.html" class="nav-link cta-nav">Start Project</a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="section-kicker scramble-text" data-scramble="Signal-grade motion systems">Signal-grade motion systems</span>
+                <h1 class="hero-title">
+                    <span class="title-line" data-text="Motion">Motion</span>
+                    <span class="title-line" data-text="That">That</span>
+                    <span class="title-line accent" data-text="Magnetizes">Magnetizes</span>
+                </h1>
+                <p class="hero-subtitle">Creative direction, kinetic identity, and immersive launch surfaces for brands that want more pull, more atmosphere, and more memory.</p>
+                <div class="hero-actions">
+                    <a href="work.html" class="btn-primary">View Selected Work</a>
+                    <a href="lab.html" class="btn-secondary">Explore Lab</a>
+                </div>
+                <div class="signal-metrics">
+                    <article class="glass-panel metric-card" data-tilt>
+                        <span class="metric-label scramble-text" data-scramble="3D Direction">3D Direction</span>
+                        <strong>Spatial brand systems</strong>
+                        <p>Logos, motion fields, and interaction layers built to feel like living artifacts.</p>
+                    </article>
+                    <article class="glass-panel metric-card" data-tilt>
+                        <span class="metric-label scramble-text" data-scramble="Media Stack">Media Stack</span>
+                        <strong>Video, audio, interactive</strong>
+                        <p>Every public-facing surface moves together instead of feeling assembled from parts.</p>
+                    </article>
+                    <article class="glass-panel metric-card" data-tilt>
+                        <span class="metric-label scramble-text" data-scramble="Ship Discipline">Ship Discipline</span>
+                        <strong>Fast, hardened, verified</strong>
+                        <p>Concept first, refinement second, validation before anything goes live.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-video-shell glass-panel">
+                    <video class="hero-video" autoplay muted loop playsinline poster="assets/images/nebula-still-a.jpg">
+                        <source src="assets/videos/nebula-loop-a.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+                    <div class="hero-video-overlay">
+                        <div class="hero-badge scramble-text" data-scramble="Magnetar Broadcast">Magnetar Broadcast</div>
+                        <div class="hero-chip-row">
+                            <span>3D logo systems</span>
+                            <span>Spatial depth</span>
+                            <span>Cinematic launch loops</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="orb-container">
+                    <div class="orb orb-1"></div>
+                    <div class="orb orb-2"></div>
+                    <div class="orb orb-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="showcase-strip">
+            <div class="strip-track">
+                <span>Brand Films</span>
+                <span class="divider">◆</span>
+                <span>Motion Systems</span>
+                <span class="divider">◆</span>
+                <span>3D Direction</span>
+                <span class="divider">◆</span>
+                <span>Interactive</span>
+                <span class="divider">◆</span>
+                <span>Brand Films</span>
+                <span class="divider">◆</span>
+                <span>Motion Systems</span>
+                <span class="divider">◆</span>
+                <span>3D Direction</span>
+                <span class="divider">◆</span>
+                <span>Interactive</span>
+                <span class="divider">◆</span>
+            </div>
+        </section>
+
+        <section class="scene-grid">
+            <article class="scene-card glass-panel" data-tilt>
+                <span class="scene-kicker scramble-text" data-scramble="Hero Surface">Hero Surface</span>
+                <h2>Open with something that already feels expensive.</h2>
+                <p>Spatial logos, moving light, cinematic pacing, and layered transparency turn the first screen into a real presentation surface instead of a polite introduction.</p>
+            </article>
+            <article class="scene-card media-card">
+                <div class="item-media video-container">
+                    <video autoplay muted loop playsinline poster="assets/images/signal-field-still.jpg">
+                        <source src="assets/videos/signal-field-loop.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </article>
+        </section>
+
+        <section class="featured-work">
+            <div class="section-header">
+                <h2>Latest Output</h2>
+                <a href="work.html" class="link-arrow">All Projects →</a>
+            </div>
+            <div class="work-grid">
+                <article class="work-card large">
+                    <div class="card-media">
+                        <img src="assets/images/gallery/kinetic-identity.jpg" alt="Neon kinetic typography composition">
+                    </div>
+                    <div class="card-info">
+                        <span class="card-tag">Brand Film</span>
+                        <h3>Pulse Dynamics</h3>
+                        <p>Kinetic identity system for a biometric technology platform.</p>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="card-media">
+                        <img src="assets/images/gallery/fluid-state-art.svg" alt="Abstract 3D render with fluid forms">
+                    </div>
+                    <div class="card-info">
+                        <span class="card-tag">3D Direction</span>
+                        <h3>Fluid State</h3>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <div class="card-media">
+                        <img src="assets/images/gallery/interface-theory.jpg" alt="Retro-futuristic interface design">
+                    </div>
+                    <div class="card-info">
+                        <span class="card-tag">Motion System</span>
+                        <h3>Interface Theory</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="proof-belt">
+            <article class="proof-card glass-panel" data-tilt>
+                <span class="proof-kicker scramble-text" data-scramble="Narrative Systems">Narrative Systems</span>
+                <h3>Text that moves like part of the art direction.</h3>
+                <p>Scramble reveals, timing shifts, and signal ribbons make copy feel live instead of pasted on top.</p>
+            </article>
+            <article class="proof-card glass-panel" data-tilt>
+                <span class="proof-kicker scramble-text" data-scramble="Visual Depth">Visual Depth</span>
+                <h3>Glass, glow, depth, and controlled motion fields.</h3>
+                <p>Layered gradients and blurred transparency give the interface a premium cinematic body.</p>
+            </article>
+            <article class="proof-card glass-panel" data-tilt>
+                <span class="proof-kicker scramble-text" data-scramble="Live Assets">Live Assets</span>
+                <h3>Video and sound are part of the pitch, not afterthoughts.</h3>
+                <p>Hero loops, section clips, and audio beds make the page feel like a real launch deck.</p>
+            </article>
+        </section>
+
+        <section class="sound-stage">
+            <div class="sound-copy">
+                <span class="section-kicker scramble-text" data-scramble="Sound Stage">Sound Stage</span>
+                <h2>Give the visuals something to push against.</h2>
+                <p>Original scoring, premium voice cues, and route-aware playback make the site feel authored instead of assembled. The dock below lets people audition the energy without breaking the experience.</p>
+            </div>
+            <div class="sound-card glass-panel">
+                <div class="waveform">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                </div>
+                <div class="sound-badges">
+                    <span>42s original score</span>
+                    <span>2 premium voice cues</span>
+                    <span>dock-controlled playback</span>
+                </div>
+                <div class="sound-actions">
+                    <button type="button" class="sound-trigger" data-audio-trigger="score">Play Score</button>
+                    <button type="button" class="sound-trigger" data-audio-trigger="intro">Lead Voice</button>
+                    <button type="button" class="sound-trigger" data-audio-trigger="closer">Closer Voice</button>
+                </div>
+                <p class="sound-note">No stock loops. No default whisper voice. The audio layer is now part of the system.</p>
+            </div>
+        </section>
+
+        <section class="studio-statement">
+            <div class="statement-content">
+                <h2>We craft gravitational pull.</h2>
+                <p>Every frame, every transition, every interaction is designed to attract attention and hold it. No filler. No templates. Just magnetic creative work that moves audiences and moves the needle.</p>
+                <a href="contact.html" class="btn-primary">Start Your Project</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-atmosphere" aria-hidden="true">
+            <span class="footer-halo footer-halo-1"></span>
+            <span class="footer-halo footer-halo-2"></span>
+            <span class="footer-gridline"></span>
+        </div>
+        <div class="footer-world">
+            <div class="footer-lead">
+                <div>
+                    <span class="section-kicker scramble-text" data-scramble="Signal Room">Signal Room</span>
+                    <h2>Even the footer should feel like a launch surface.</h2>
+                </div>
+                <p>The last screen still needs heat: social touchpoints, motion-minded calls to action, and a branded afterglow that keeps the project feeling authored all the way down.</p>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Magnetar</span>
+                    <p>Motion House</p>
+                    <div class="footer-pills">
+                        <span>3D identity systems</span>
+                        <span>Cinematic web motion</span>
+                        <span>Audio-led launches</span>
+                    </div>
+                </div>
+                <div class="footer-links footer-column">
+                    <span class="footer-label">Explore</span>
+                    <a href="work.html">Work</a>
+                    <a href="lab.html">Lab</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social footer-column">
+                    <span class="footer-label">Follow the field</span>
+                    <div class="footer-social-row">
+                        <a class="social-orb" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2m0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zm8.88 1.13a1.12 1.12 0 1 1 0 2.24a1.12 1.12 0 0 1 0-2.24M12 6.5A5.5 5.5 0 1 1 6.5 12A5.5 5.5 0 0 1 12 6.5m0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4"/></svg>
+                            <span class="social-label">Instagram</span>
+                        </a>
+                        <a class="social-orb" href="https://vimeo.com" target="_blank" rel="noopener" aria-label="Vimeo">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 6.64c-.08 1.76-1.31 4.17-3.68 7.23c-2.45 3.2-4.52 4.8-6.22 4.8c-1.05 0-1.94-.97-2.67-2.9l-1.45-5.32c-.54-1.93-1.12-2.9-1.74-2.9c-.13 0-.6.28-1.4.84L3.6 7.31c1.15-1.01 2.28-2.02 3.39-3.03c1.52-1.31 2.66-1.99 3.42-2.04c1.8-.17 2.91 1.06 3.33 3.68l.36 2.39c.4 2.65.83 3.98 1.28 3.98c.35 0 .88-.55 1.59-1.64c.71-1.09 1.09-1.92 1.15-2.49c.1-.94-.27-1.41-1.11-1.41c-.4 0-.81.09-1.23.27c.82-2.7 2.4-4.01 4.72-3.94c1.72.05 2.53 1.24 2.41 3.56"/></svg>
+                            <span class="social-label">Vimeo</span>
+                        </a>
+                        <a class="social-orb" href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5H3.56V20h3.38zM5.25 3A1.97 1.97 0 1 0 5.3 6.94A1.97 1.97 0 0 0 5.25 3m15.19 9.37c0-3.39-1.81-4.97-4.22-4.97c-1.94 0-2.81 1.06-3.29 1.81V8.5H9.56c.04.89 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.13-.92c.27-.68.9-1.39 1.95-1.39c1.37 0 1.92 1.05 1.92 2.58V20h3.38z"/></svg>
+                            <span class="social-label">LinkedIn</span>
+                        </a>
+                    </div>
+                    <a href="contact.html" class="footer-cta">Book a launch review</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Magnetar Motion House. All rights reserved.</p>
+                <span>Built for brands that want more pull, more atmosphere, and more memory.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
