@@ -2,6 +2,10 @@
 
 Magnetar Motion House is a motion-led multi-page studio demo built to feel cinematic, spatial, and premium from the first frame to the footer.
 
+Live site: [magnetar-motion-house.vercel.app](https://magnetar-motion-house.vercel.app)
+
+GitHub: [Franksharpe008/magnetar-motion-house](https://github.com/Franksharpe008/magnetar-motion-house)
+
 ## What It Includes
 
 - multi-page navigation across `index`, `work`, `lab`, and `contact`
