@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroWebGL();
 });
 
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function isCoarsePointer() {
+    return window.matchMedia('(pointer: coarse)').matches;
+}
+
 function initMobileNav() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -268,6 +276,7 @@ function initRevealObserver() {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.12 });
@@ -281,7 +290,7 @@ function initRevealObserver() {
 
 function initParallaxOrbs() {
     const orbs = document.querySelectorAll('.orb');
-    if (!orbs.length) return;
+    if (!orbs.length || prefersReducedMotion() || isCoarsePointer()) return;
 
     let ticking = false;
 
@@ -313,7 +322,9 @@ function initSmoothScroll() {
 }
 
 function initMagneticElements() {
-    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .glass-panel, .video-toggle, .social-orb, .footer-cta');
+    if (prefersReducedMotion() || isCoarsePointer()) return;
+
+    const magneticElements = document.querySelectorAll('.btn-primary, .btn-secondary, .sound-trigger, .video-toggle, .social-orb, .footer-cta');
     magneticElements.forEach((element) => {
         element.addEventListener('mousemove', (event) => {
             const rect = element.getBoundingClientRect();
@@ -333,6 +344,10 @@ function initScrambleText() {
     document.querySelectorAll('.scramble-text').forEach((element, index) => {
         const finalText = element.dataset.scramble || element.textContent || '';
         element.textContent = finalText;
+
+        if (prefersReducedMotion()) {
+            return;
+        }
 
         const runScramble = () => {
             let iteration = 0;
@@ -359,6 +374,8 @@ function initScrambleText() {
 }
 
 function initTiltCards() {
+    if (prefersReducedMotion() || isCoarsePointer()) return;
+
     document.querySelectorAll('[data-tilt]').forEach((card) => {
         card.addEventListener('mousemove', (event) => {
             const rect = card.getBoundingClientRect();
@@ -377,6 +394,7 @@ function initHeroWebGL() {
     const canvas = document.getElementById('heroCanvas');
     if (!(canvas instanceof HTMLCanvasElement)) return;
     canvas.classList.remove('is-live');
+    if (prefersReducedMotion() || window.innerWidth < 1100) return;
 
     const supportsWebGL = () => {
         try {
@@ -472,15 +490,21 @@ function initHeroWebGL() {
         resize();
         window.addEventListener('resize', resize);
 
+        const heroSection = canvas.closest('.hero-visual');
         window.addEventListener('pointermove', (event) => {
             pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
             pointer.y = (event.clientY / window.innerHeight) * 2 - 1;
         });
 
-        const startedAt = performance.now();
+        const clock = new THREE.Clock();
         let revealed = false;
+        let isActive = true;
+
         const render = () => {
-            const elapsed = (performance.now() - startedAt) / 1000;
+            if (!isActive) {
+                return;
+            }
+            const elapsed = clock.getElapsedTime();
             knot.rotation.x = elapsed * 0.25;
             knot.rotation.y = elapsed * 0.42;
             wire.rotation.x = -elapsed * 0.18;
@@ -496,6 +520,25 @@ function initHeroWebGL() {
             }
             window.requestAnimationFrame(render);
         };
+
+        const setActive = (nextState) => {
+            if (nextState === isActive) return;
+            isActive = nextState;
+            if (isActive) {
+                clock.start();
+                window.requestAnimationFrame(render);
+            } else {
+                clock.stop();
+            }
+        };
+
+        if (heroSection instanceof HTMLElement) {
+            const observer = new IntersectionObserver((entries) => {
+                const entry = entries[0];
+                setActive(Boolean(entry?.isIntersecting));
+            }, { threshold: 0.08 });
+            observer.observe(heroSection);
+        }
 
         render();
     }).catch(() => {});

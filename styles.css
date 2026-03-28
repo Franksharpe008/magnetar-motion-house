@@ -72,7 +72,7 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     padding: 1.5rem 3rem;
     z-index: 100;
     background: linear-gradient(to bottom, var(--bg-primary), transparent);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
 }
 
 .logo-link {
@@ -280,8 +280,9 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 0 24px 80px rgba(0,0,0,0.28);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    contain: paint;
 }
 
 .section-kicker,
@@ -380,6 +381,7 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     overflow: hidden;
     border-radius: 32px;
     isolation: isolate;
+    contain: layout paint;
     background:
         radial-gradient(circle at 22% 18%, rgba(255, 80, 150, 0.24), transparent 40%),
         radial-gradient(circle at 78% 82%, rgba(72, 120, 255, 0.28), transparent 44%),
@@ -456,9 +458,9 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
 .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.6;
-    animation: orbFloat 8s ease-in-out infinite;
+    filter: blur(42px);
+    opacity: 0.5;
+    animation: orbFloat 12s ease-in-out infinite;
 }
 
 .orb-1 {
@@ -568,6 +570,8 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
 /* Featured Work */
 .featured-work {
     padding: 6rem 5rem;
+    content-visibility: auto;
+    contain-intrinsic-size: 880px;
 }
 
 .section-header {
@@ -664,6 +668,8 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     padding: 8rem 5rem;
     text-align: center;
     background: radial-gradient(ellipse at center, var(--bg-secondary) 0%, var(--bg-primary) 70%);
+    content-visibility: auto;
+    contain-intrinsic-size: 560px;
 }
 
 .statement-content {
@@ -690,6 +696,8 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
+    content-visibility: auto;
+    contain-intrinsic-size: 520px;
 }
 
 .proof-card {
@@ -712,6 +720,8 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 1.5rem;
     align-items: stretch;
+    content-visibility: auto;
+    contain-intrinsic-size: 620px;
 }
 
 .sound-copy,
@@ -776,6 +786,8 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     position: relative;
     padding: 5rem 5rem 2.5rem;
     overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 640px;
 }
 
 .footer-atmosphere {
@@ -787,9 +799,9 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
 .footer-halo {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.32;
-    animation: orbFloat 14s ease-in-out infinite;
+    filter: blur(52px);
+    opacity: 0.24;
+    animation: orbFloat 18s ease-in-out infinite;
 }
 
 .footer-halo-1 {
@@ -830,8 +842,9 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
         radial-gradient(circle at 90% 20%, rgba(51,102,255,0.2), transparent 38%),
         #0b0d16;
     box-shadow: 0 32px 90px rgba(0,0,0,0.34);
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    contain: paint;
 }
 
 .footer-world::before {
@@ -1313,10 +1326,11 @@ h1, h2, h3, .logo-text, .btn-primary, .btn-secondary, .cta-nav {
     border-radius: 24px;
     border: 1px solid rgba(255,255,255,0.1);
     background: rgba(5, 9, 18, 0.84);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 24px 80px rgba(0,0,0,0.32);
     overflow: hidden;
+    contain: paint;
     transition:
         width 0.45s var(--ease-out-expo),
         transform 0.45s var(--ease-out-expo),
